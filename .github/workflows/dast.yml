@@ -13,7 +13,7 @@ jobs:
       - name: 'running npm install'
         run: 'npm install'
       - name: 'run app'
-        run: 'npm start'
+        run: 'npm start &'
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.2.0
         with:
