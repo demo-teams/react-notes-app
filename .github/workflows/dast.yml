@@ -1,0 +1,22 @@
+name: 'DAST'
+on: push
+
+jobs:
+  zap-scan:
+    name: 'DAST Zap scan'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: 'running npm install'
+        run: 'npm install'
+      - name: 'running http-server'
+        run: './node_modules/.bin/http-server -p 3000 &'
+      - name: 'run app'
+        run: 'npm start'
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: 'owasp/zap2docker-stable'
+          target: 'http://127.0.0.1:3000'
