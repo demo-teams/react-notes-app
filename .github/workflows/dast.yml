@@ -1,5 +1,7 @@
 name: 'DAST'
-on: push
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   zap-scan:
