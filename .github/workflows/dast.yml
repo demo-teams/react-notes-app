@@ -10,8 +10,6 @@ jobs:
         uses: actions/checkout@v2
       - name: 'running npm install'
         run: 'npm install'
-      - name: 'running http-server'
-        run: './node_modules/.bin/http-server -p 3000 &'
       - name: 'run app'
         run: 'npm start'
       - name: ZAP Scan
@@ -19,4 +17,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
-          target: 'http://127.0.0.1:3000'
+          target: 'http://localhost:3000'
