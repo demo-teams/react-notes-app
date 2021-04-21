@@ -1,6 +1,5 @@
 name: 'DAST'
 on:
-  push:
   workflow_dispatch:
 
 jobs:
