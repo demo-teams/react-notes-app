@@ -39,6 +39,7 @@ class App extends Component {
   }
 
   performSubmissionRequest = (data, id) => {
+    return;
     if (id) {
       return axios.patch(urlFor(`notes/${id}`), data);
     } else {
